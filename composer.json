@@ -1,0 +1,17 @@
+{
+    "name": "henryisaquiel/desafio-lista-telefonica",
+    "description": "Desafio proposto pela MadeiraMadeira",
+    "type": "lskdjfklsdj",
+    "authors": [
+        {
+            "name": "Henry Franklin Isaquiel Ferreira",
+            "email": "henrymais@gmail.com"
+        }
+    ],
+    "require": {
+        "components/jquery": "^3.3",
+        "twbs/bootstrap": "^4.0",
+        "components/font-awesome": "^5.0",
+        "robinherbots/jquery.inputmask": "^3.3"
+    }
+}
