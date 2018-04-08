@@ -203,7 +203,7 @@
       });
 
       var getContatos = function(){
-        $.get('/ws/contato/getListaContatos', function(contatos){
+        $.get('./ws/contato/getListaContatos', function(contatos){
           let
             template_area = $('.template-contato'),
             template = $(template_area.children().get(0)),
@@ -232,7 +232,7 @@
                     id = $(this).data('id');
                 $( modal_name_class + ' #modal-title').text($(this).data('title'));
 
-                $.get('/ws/contato/get/' + id, function(data){
+                $.get('./ws/contato/get/' + id, function(data){
                   if(data.data) {
                     $.each(data.data, function(k, v){
                       modal.find('[name="'+ k +'"]').val(v);
@@ -253,7 +253,7 @@
         btn = $(btn);
         let id = btn.data('id');
         
-        $.get('/ws/contato/get/' + id, function(data){
+        $.get('./ws/contato/get/' + id, function(data){
           if(data.data) {
             var modal = $('.modal-contact').first();
               modal.find('form')[0].reset();
@@ -262,7 +262,7 @@
             });
             modal.modal('show');
 
-            setActionForm(modal.find('form').first(), '/ws/contato/update/' + id);
+            setActionForm(modal.find('form').first(), './ws/contato/update/' + id);
 
           }
         });
@@ -275,7 +275,7 @@
 
         if(confirm('Tem certeza que deseja excluir este contato?')){
           $.ajax({
-            url: '/ws/contato/delete/'+id,
+            url: './ws/contato/delete/'+id,
             type: 'DELETE',
             success: function(result) {
               getContatos();
@@ -296,7 +296,7 @@
         $(target + ' #modal-title').text($(this).data('title'));
 
         form[0].reset();
-        setActionForm(form, '/ws/contato/create');
+        setActionForm(form, './ws/contato/create');
 
       });
 

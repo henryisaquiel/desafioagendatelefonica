@@ -11,11 +11,19 @@ class BaseController
 
 	public static function init()
 	{
-		if($_SERVER['REQUEST_URI'] === '/'){
+		$request_path = $_SERVER['REQUEST_URI'];
+		$script_name = dirname($_SERVER['SCRIPT_NAME']);
+
+		$encontra = strpos($request_path, $script_name);
+		if( $encontra === 0) {
+			$request_path = '/' . ltrim(substr($request_path, strlen($script_name), strlen($request_path)), '/');
+		}
+
+		if($request_path === '/'){
 			return IndexController::index();
 		}
 
-		$request_uri = array_filter(explode('/', $_SERVER['REQUEST_URI']));
+		$request_uri = array_filter(explode('/', $request_path));
 
 		$path = function ($request_uri){
 			$request_uri;
