@@ -26,6 +26,7 @@ class BaseModel
 
 	public function updateFile()
 	{
+		$this->data['data'] = array_values($this->data['data']);
 		file_put_contents($this->file_name, json_encode($this->data) );
 	}
 
@@ -89,7 +90,7 @@ class BaseModel
 
 	public function all()
 	{
-		return $this->data['data'];
+		return array_values($this->data['data']);
 	}
 
 	public function find($id)
